@@ -6,6 +6,7 @@ import { DishGroup } from './PorcelainDish'
 // Shows the live temperature of the dish kept inside.
 
 export default function Desiccator({ lidOpen, dish, onToggleLid }) {
+  const cooling = dish && dish.temp > 32
   return (
     <div className="flex w-full flex-col items-center">
       <svg viewBox="0 0 180 190" width="100%" height="165" role="img" aria-label="Desiccator">
@@ -19,6 +20,11 @@ export default function Desiccator({ lidOpen, dish, onToggleLid }) {
             <stop offset="0" stopColor="#fef9c3" />
             <stop offset="1" stopColor="#facc15" />
           </radialGradient>
+          <linearGradient id="dessCool" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#7dd3fc" stopOpacity="0" />
+            <stop offset="0.5" stopColor="#7dd3fc" stopOpacity="0.55" />
+            <stop offset="1" stopColor="#93c5fd" stopOpacity="0" />
+          </linearGradient>
         </defs>
 
         <ellipse cx="90" cy="180" rx="78" ry="7" fill="#0f172a" opacity="0.12" />
@@ -38,6 +44,30 @@ export default function Desiccator({ lidOpen, dish, onToggleLid }) {
         {/* glass highlight streaks */}
         <path d="M40 74 Q40 48 70 40" stroke="#ffffff" strokeWidth="4" fill="none" opacity="0.6" strokeLinecap="round" />
         <path d="M44 90 L44 140" stroke="#ffffff" strokeWidth="3" fill="none" opacity="0.4" strokeLinecap="round" />
+
+        {/* blue cooling shimmer sweeping down the glass */}
+        {cooling && (
+          <motion.path
+            d="M30 60 L150 60 L150 150 L30 150 Z"
+            fill="url(#dessCool)"
+            animate={{ opacity: [0, 0.45, 0], y: [-8, 14, 6] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ transformBox: 'view-box', transformOrigin: '90px 90px' }}
+          />
+        )}
+
+        {/* condensation droplets while the hot dish cools off */}
+        {cooling && (
+          <g>
+            {[[52, 96], [118, 92], [86, 118], [128, 132], [62, 142]].map(([x, y], i) => (
+              <motion.circle
+                key={i} cx={x} cy={y} r="2" fill="#7dd3fc" opacity="0.8"
+                animate={{ cy: [y, y + 9, y], opacity: [0.9, 0.25, 0.9] }}
+                transition={{ duration: 2.4, repeat: Infinity, delay: i * 0.35 }}
+              />
+            ))}
+          </g>
+        )}
 
         {/* perforated plate */}
         <ellipse cx="90" cy="128" rx="60" ry="12" fill="#f1f5f9" stroke="#94a3b8" strokeWidth="1.5" opacity="0.95" />

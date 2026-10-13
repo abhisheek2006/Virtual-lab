@@ -4,6 +4,7 @@ import { useLab } from '../engine/store'
 import { formatSimClock, SPEEDS } from '../engine/timeSim'
 import SidePanel from '../components/SidePanel'
 import Bench from '../components/Bench'
+import LabRoom from '../components/lab/LabRoom'
 import HintBar from '../components/HintBar'
 import Toasts from '../components/Toasts'
 import PrecautionsModal from '../components/PrecautionsModal'
@@ -105,7 +106,9 @@ export default function Perform() {
       <div className="mt-3 flex flex-col gap-3 lg:flex-row">
         {sidePanelOpen && <SidePanel />}
         <div className="min-w-0 flex-1">
-          <Bench />
+          <LabRoom>
+            <Bench />
+          </LabRoom>
           <div className="mt-3">
             <HintBar />
           </div>

@@ -20,6 +20,22 @@ function Vapour({ x, delay }) {
   )
 }
 
+// Wavy heat shimmer rising off the hot elements.
+function HeatShimmer({ x }) {
+  return (
+    <motion.path
+      d={`M${x} 150 q 6 -8 0 -16 q -6 -8 0 -16`}
+      fill="none"
+      stroke="#fbbf24"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: [0, 0.6, 0], y: -4 }}
+      transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+    />
+  )
+}
+
 export default function ElectricOven({ oven, dish, onPower, onSetpoint, onToggleDoor, onToggleTimer }) {
   const heating = oven.power && oven.temp < oven.setpoint - 1
   const atTemp = oven.power && oven.temp >= oven.setpoint - 1
@@ -45,6 +61,11 @@ export default function ElectricOven({ oven, dish, onPower, onSetpoint, onToggle
             <stop offset="0" stopColor="#fbbf24" />
             <stop offset="1" stopColor="#dc2626" />
           </linearGradient>
+          <radialGradient id="cavityGlow" cx="0.5" cy="0.5" r="0.7">
+            <stop offset="0" stopColor="#fb923c" stopOpacity="0.55" />
+            <stop offset="0.6" stopColor="#ef4444" stopOpacity="0.28" />
+            <stop offset="1" stopColor="#ef4444" stopOpacity="0" />
+          </radialGradient>
         </defs>
 
         <ellipse cx="140" cy="212" rx="115" ry="7" fill="#0f172a" opacity="0.12" />
@@ -54,6 +75,14 @@ export default function ElectricOven({ oven, dish, onPower, onSetpoint, onToggle
 
         {/* cavity (visible when the door is open) */}
         <rect x="30" y="40" width="220" height="132" rx="8" fill="url(#ovenCavity)" stroke="#374151" strokeWidth="2" />
+        {/* warm glow that builds while the oven heats up */}
+        {oven.power && oven.temp > 50 && (
+          <motion.rect
+            x="30" y="40" width="220" height="132" rx="8" fill="url(#cavityGlow)"
+            animate={{ opacity: [0.55, 0.95, 0.6] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
+          />
+        )}
         {/* rack */}
         <line x1="40" y1="130" x2="240" y2="130" stroke="#9ca3af" strokeWidth="3" />
         {[70, 100, 130, 160, 190, 220].map((x) => (
@@ -74,6 +103,14 @@ export default function ElectricOven({ oven, dish, onPower, onSetpoint, onToggle
           <g transform="translate(81,69) scale(0.85)">
             <DishGroup paintMass={dish.paintMass} color={dish.color} matte={dish.matte} />
           </g>
+        )}
+        {/* heat shimmer over the elements */}
+        {(heating || atTemp) && (
+          <>
+            <HeatShimmer x={80} />
+            <HeatShimmer x={140} />
+            <HeatShimmer x={200} />
+          </>
         )}
         {/* vapour wisps from the drying paint */}
         {showVapour && (
