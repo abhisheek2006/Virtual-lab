@@ -1,0 +1,218 @@
+{
+  "id": "paint-thinner",
+  "title": "Practical No. 15: Thinner content in oil paint",
+  "shortTitle": "Thinner content in oil paint",
+  "course": "Basic Science - Chemistry (311305), MSBTE K-Scheme",
+
+  "aim": "To determine the thinner content in oil paint.",
+
+  "significance": "The concept of drying of a paint film is due to evaporation of a volatile solvent, and the volatile solvent plays an important role in paint. Addition of thinner in paint reduces the viscosity so that it can be easily applied on metallic and non-metallic surfaces.",
+
+  "industryOutcomes": [
+    "Ability to weigh the paint accurately.",
+    "Ability to measure temperature and time for heating the paint.",
+    "Ability to clean and handle the apparatus.",
+    "Interpretation of the result.",
+    "Discrimination between thinner and paint."
+  ],
+
+  "courseOutcome": "CO6 - Use the appropriate engineering material and catalyst appropriately.",
+
+  "practicalLearningOutcome": "Determination of thinner content in oil paint.",
+
+  "laboratoryLearningOutcome": "Determine thinner content in oil paint using electric oven.",
+
+  "affectiveDomainOutcome": "Maintain tools and equipment.",
+
+  "theory": "Paint is applied on metallic surfaces to prevent corrosion. Addition of thinner reduces the viscosity of paint. Paint thinner is a solvent used to thin oil-based paints or to clean up after their use. Commercially, solvents labelled \"Paint Thinner\" are usually mineral spirits having a flash point of about 40 C (104 F), the same as some popular brands of charcoal starter.",
+
+  "experimentalSetUp": "Porcelain dish, weighing balance.",
+
+  "resources": [
+    { "sr": 1, "resource": "Crucible / porcelain dish", "specification": "Silica", "qty": "01" },
+    { "sr": 2, "resource": "Electric oven", "specification": "Inner size 18\" x 18\" x 18\", temperature range 100 to 250 C, capacity 40 litre", "qty": "01" },
+    { "sr": 3, "resource": "Chemical balance", "specification": "Scale range 0.001 g to 500 g, pan size 100 mm, response time 3-5 sec, power 90-250 V 10 W", "qty": "01" },
+    { "sr": 4, "resource": "Desiccator", "specification": "4 inch", "qty": "01" },
+    { "sr": 5, "resource": "CaCO3 crystals (desiccant)", "specification": "As written in the manual - confirm with instructor", "qty": "As required" },
+    { "sr": 6, "resource": "Oil paint", "specification": "Oil-based paint sample", "qty": "As required" }
+  ],
+
+  "precautions": [
+    "Handle the crucible carefully.",
+    "Cool the crucible in the desiccator."
+  ],
+
+  "procedure": [
+    "Weigh approximately 1 g (W) of paint on an electronic weighing balance in a porcelain dish.",
+    "Keep the porcelain dish in a previously heated electric oven at 120 C and heat for one hour.",
+    "Keep the dish in the desiccator to cool down to room temperature.",
+    "Weigh the sample accurately.",
+    "By knowing the loss in weight of paint, calculate the thinner content in the paint."
+  ],
+
+  "observationTable": [
+    { "sr": 1, "observation": "Weight of empty porcelain dish", "symbol": "W1", "unit": "g" },
+    { "sr": 2, "observation": "Weight of porcelain dish + paint (before heating)", "symbol": "W2", "unit": "g" },
+    { "sr": 3, "observation": "Weight of paint, W = W2 - W1", "symbol": "W", "unit": "g" },
+    { "sr": 4, "observation": "Weight of porcelain dish + paint (after heating)", "symbol": "W3", "unit": "g" },
+    { "sr": 5, "observation": "Loss in weight of paint, Z = W2 - W3", "symbol": "Z", "unit": "g" }
+  ],
+
+  "calculation": "If W g of paint contains Z g of thinner, then 100 g of paint contains (Z x 100) / W % of thinner.",
+
+  "result": "Thinner content of the paint is ______ %.",
+
+  "apparatus": [
+    "porcelain-dish",
+    "oil-paint",
+    "weighing-balance",
+    "electric-oven",
+    "desiccator"
+  ],
+
+  "simulation": {
+    "comment": "Hidden values are randomised on each new attempt. Ranges are configurable here.",
+    "hidden": {
+      "emptyDishMin": 28.0,
+      "emptyDishMax": 45.0,
+      "thinnerFractionMin": 0.30,
+      "thinnerFractionMax": 0.50,
+      "balanceNoise": 0.001,
+      "heatTimeConstantMin": 12,
+      "coolTimeConstantMin": 7,
+      "roomTemperature": 30,
+      "targetPaintMass": 1.0,
+      "paintMassLow": 0.9,
+      "paintMassHigh": 1.1,
+      "paintMassBlock": 1.5,
+      "pourStep": 0.005,
+      "pourStepsPerTick": 5,
+      "ovenSetpoint": 120,
+      "ovenSetpointTolerance": { "low": 118, "high": 125 },
+      "heatTimeMinutes": 60,
+      "hotThreshold": 40,
+      "cooledThreshold": 32,
+      "ovenHeatMinutes": 3
+    }
+  },
+
+  "steps": [
+    {
+      "id": "s1",
+      "title": "Pre-heat the oven",
+      "text": "Switch on the oven and set it to 120 C so it is pre-heated (it heats while you continue).",
+      "hint": "Use the oven power switch, then the up/down buttons to reach 120 C.",
+      "check": "checkOvenPreheat"
+    },
+    {
+      "id": "s2",
+      "title": "Record W1",
+      "text": "Place the empty porcelain dish on the balance, wait for a stable reading, and record W1.",
+      "hint": "Drag the porcelain dish onto the balance pan, wait for STABLE, then press Record.",
+      "check": "checkRecordW1"
+    },
+    {
+      "id": "s3",
+      "title": "Pour paint",
+      "text": "Pour approximately 1 g of oil paint into the dish on the balance.",
+      "hint": "Press and hold the paint tin to pour. Small steps of 0.005 g are added.",
+      "check": "checkPourPaint"
+    },
+    {
+      "id": "s4",
+      "title": "Record W2",
+      "text": "Record W2 (dish + paint before heating) and calculate W = W2 - W1.",
+      "hint": "Wait for a stable reading on the balance, then press Record.",
+      "check": "checkRecordW2"
+    },
+    {
+      "id": "s5",
+      "title": "Load the oven",
+      "text": "Check the oven shows 120 C. Open the door, place the dish inside, close the door.",
+      "hint": "Set the oven to 120 C, open the door, drag the dish onto the oven rack, then close the door.",
+      "check": "checkLoadOven"
+    },
+    {
+      "id": "s6",
+      "title": "Heat for 1 hour",
+      "text": "Start the timer and heat for 1 hour (use the time control).",
+      "hint": "Press Start on the oven and increase the time speed to finish faster.",
+      "check": "checkHeatHour"
+    },
+    {
+      "id": "s7",
+      "title": "Cool in the desiccator",
+      "text": "Remove the dish and place it in the desiccator, close the lid, and wait until it reaches room temperature.",
+      "hint": "Open the oven door, take the dish out, drag it onto the desiccator plate and close the lid.",
+      "check": "checkCooled"
+    },
+    {
+      "id": "s8",
+      "title": "Record W3",
+      "text": "Weigh the dish + paint again and record W3.",
+      "hint": "Move the cooled dish from the desiccator onto the balance and press Record.",
+      "check": "checkRecordW3"
+    },
+    {
+      "id": "s9",
+      "title": "Calculate",
+      "text": "Calculate Z = W2 - W3 and thinner % = (Z x 100) / W, and type the answers in the Observations tab.",
+      "hint": "Open the Observations tab and fill Z and the final %.",
+      "check": "checkCalculated"
+    },
+    {
+      "id": "s10",
+      "title": "Review and viva",
+      "text": "Review the result and answer the viva questions.",
+      "hint": "Press Finish to open the result, then answer the viva questions.",
+      "check": "checkReviewed"
+    }
+  ],
+
+  "viva": [
+    {
+      "question": "Why is thinner added to paint?",
+      "options": [
+        "To increase the gloss of the film",
+        "To reduce the viscosity so the paint spreads easily",
+        "To speed up corrosion of the metal",
+        "To add colour to the paint"
+      ],
+      "answerIndex": 1,
+      "explain": "Thinner is a volatile solvent that lowers the viscosity, making the paint easy to apply."
+    },
+    {
+      "question": "Commercially, paint thinner is usually which type of solvent?",
+      "options": [
+        "Mineral spirits",
+        "Distilled water",
+        "Concentrated acid",
+        "Glycerine"
+      ],
+      "answerIndex": 0,
+      "explain": "Commercially labelled paint thinner is usually mineral spirits, a volatile hydrocarbon solvent."
+    },
+    {
+      "question": "Why is the dish cooled in the desiccator before weighing?",
+      "options": [
+        "To make the paint dry faster",
+        "To add moisture to the paint",
+        "To prevent moisture pickup and to weigh safely at room temperature",
+        "To increase the weight of the dish"
+      ],
+      "answerIndex": 2,
+      "explain": "A cool dish weighed in air can absorb moisture; the desiccant keeps it dry, and hot dishes give drifting readings."
+    },
+    {
+      "question": "Why does the weight of the paint decrease on heating?",
+      "options": [
+        "The paint absorbs oxygen and becomes heavier",
+        "The volatile thinner evaporates",
+        "The porcelain dish loses weight",
+        "The paint reacts with the air to form gas that stays inside"
+      ],
+      "answerIndex": 1,
+      "explain": "The loss in weight is due to evaporation of the volatile thinner from the paint."
+    }
+  ]
+}

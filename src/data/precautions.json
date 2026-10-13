@@ -1,0 +1,19 @@
+{
+  "general": [
+    "Wear a laboratory coat, safety goggles and closed shoes at all times.",
+    "Never taste or smell chemicals directly; use your hand to waft fumes towards you.",
+    "Keep the workbench clean and free of bags, water bottles and loose papers.",
+    "Know the location of the first-aid box, fire extinguisher and emergency exit.",
+    "Switch off ovens and balances when the practical is finished.",
+    "Wash your hands thoroughly with soap after handling paint and solvents."
+  ],
+  "experiment": [
+    "Handle the porcelain dish / crucible carefully; it is brittle and gets very hot.",
+    "Always cool the porcelain dish in the desiccator before weighing it.",
+    "Never open the oven with bare hands while a dish is inside.",
+    "Set the oven accurately to 120 C for this experiment.",
+    "Do not exceed a 1 g paint sample; a thick layer dries unevenly.",
+    "Record every weighing only after the balance shows a stable reading.",
+    "Keep solvents away from any open flame; paint thinner is flammable."
+  ]
+}

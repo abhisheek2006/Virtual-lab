@@ -1,0 +1,32 @@
+{
+  "porcelain-dish": {
+    "id": "porcelain-dish",
+    "name": "Porcelain dish (crucible)",
+    "specification": "Silica glaze, heat resistant, used to hold the paint sample."
+  },
+  "weighing-balance": {
+    "id": "weighing-balance",
+    "name": "Chemical balance",
+    "specification": "Range 0.001 g to 500 g, pan 100 mm, response 3-5 sec, 90-250 V 10 W."
+  },
+  "electric-oven": {
+    "id": "electric-oven",
+    "name": "Electric oven",
+    "specification": "Inner size 18\" x 18\" x 18\", 100 to 250 C, capacity 40 litre."
+  },
+  "desiccator": {
+    "id": "desiccator",
+    "name": "Desiccator",
+    "specification": "4 inch glass desiccator with desiccant (CaCO3 crystals) and perforated plate."
+  },
+  "oil-paint": {
+    "id": "oil-paint",
+    "name": "Oil paint tin",
+    "specification": "Sample of oil-based paint whose thinner content is to be found."
+  },
+  "desiccant": {
+    "id": "desiccant",
+    "name": "CaCO3 crystals (desiccant)",
+    "specification": "Desiccant placed in the desiccator. Confirm with your instructor."
+  }
+}

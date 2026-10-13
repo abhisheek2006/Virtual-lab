@@ -1,0 +1,29 @@
+{
+  "experiments": [
+    {
+      "id": "paint-thinner",
+      "title": "Practical No. 15: Thinner content in oil paint",
+      "shortTitle": "Thinner content in oil paint",
+      "status": "active",
+      "course": "Basic Science - Chemistry (311305), MSBTE K-Scheme"
+    },
+    {
+      "id": "acid-base-titration",
+      "title": "Practical: Acid-Base Titration",
+      "shortTitle": "Acid-Base Titration",
+      "status": "coming-soon"
+    },
+    {
+      "id": "salt-analysis",
+      "title": "Practical: Salt Analysis",
+      "shortTitle": "Salt Analysis",
+      "status": "coming-soon"
+    },
+    {
+      "id": "flame-test",
+      "title": "Practical: Flame Test",
+      "shortTitle": "Flame Test",
+      "status": "coming-soon"
+    }
+  ]
+}
